@@ -1,0 +1,23 @@
+version: 0.1
+log:
+  level: debug
+  formatter: json
+  fields:
+    service: registry
+storage:
+  cache:
+    blobdescriptor: inmemory
+  s3:
+    # accesskey: 
+    # secretkey: 
+    region: us-east-2
+    bucket: sonofabitz-docker-images
+http:
+  addr: :5000
+  headers:
+    X-Content-Type-Options: [nosniff]
+health:
+  storagedriver:
+    enabled: true
+    interval: 10s
+    threshold: 3
